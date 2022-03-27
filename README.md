@@ -1,4 +1,4 @@
-# instagram_flutter
+# Instagram Clone In Flutter
 
 Instagram Clone
 
