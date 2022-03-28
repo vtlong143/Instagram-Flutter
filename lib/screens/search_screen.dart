@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:instagram_flutter/screens/profile_screen.dart';
 import 'package:instagram_flutter/utils/colors.dart';
+import 'package:instagram_flutter/utils/global_variable.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -99,11 +100,17 @@ class _SearchScreenState extends State<SearchScreen> {
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
                     repeatPattern: QuiltedGridRepeatPattern.inverted,
-                    pattern: [
-                      const QuiltedGridTile(2, 2),
-                      const QuiltedGridTile(1, 1),
-                      const QuiltedGridTile(1, 1),
-                    ],
+                    pattern: MediaQuery.of(context).size.width > webScreenSize
+                        ? [
+                            const QuiltedGridTile(1, 1),
+                            const QuiltedGridTile(1, 1),
+                            const QuiltedGridTile(1, 1),
+                          ]
+                        : [
+                            const QuiltedGridTile(2, 2),
+                            const QuiltedGridTile(1, 1),
+                            const QuiltedGridTile(1, 1),
+                          ],
                   ),
                   itemBuilder: (context, index) {
                     return Image.network(
